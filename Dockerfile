@@ -13,7 +13,7 @@ RUN wget https://dr-download.ti.com/software-development/software-development-ki
 # Grab the RTOS SDK
 RUN wget https://dr-download.ti.com/software-development/software-development-kit-sdk/MD-zv2DZbDzFz/08.06.00.14/ti-processor-sdk-rtos-j784s4-evm-08_06_00_14.tar.gz
 # Grab the Vision Apps dataset
-RUN https://dr-download.ti.com/software-development/software-development-kit-sdk/MD-zv2DZbDzFz/08.06.00.14/psdk_rtos_ti_data_set_08_06_00.tar.gz
+RUN wget https://dr-download.ti.com/software-development/software-development-kit-sdk/MD-zv2DZbDzFz/08.06.00.14/psdk_rtos_ti_data_set_08_06_00.tar.gz
 
 # Untar RTOS SDK and Vision Apps dataset
 RUN tar -xf ti-processor-sdk-rtos-j784s4-evm-08_06_00_14.tar.gz
