@@ -2,9 +2,12 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get -y update
-RUN apt-get -y install git wget curl
+RUN apt-get update && \
+    apt-get install -yq tzdata && \
+    ln -fs /usr/share/zoneinfo/America/Detroit /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
+RUN apt-get -y install git wget curl sudo
 # # Make directory for SDK
 # RUN mkdir /home/j784s4
 
@@ -33,8 +36,8 @@ RUN cp ${PSDKL_PATH}/board-support/prebuilt-images/boot-${SOC}-evm.tar.gz ${PSDK
 RUN cp ${PSDKL_PATH}/filesystem/tisdk-edgeai-image-${SOC}-evm.tar.xz ${PSDKR_PATH}/
 
 # Run setup_psdk_rtos.sh
-# RUN cd /opt/ti-processor-sdk-rtos-j784s4-evm-08_06_00_14
-# RUN bash ./psdk_rtos/scripts/setup_psdk_rtos.sh
+RUN cd $PSDKR_PATH
+RUN ./psdk_rtos/scripts/setup_psdk_rtos.sh
 
 # Clean up
 RUN rm /ti*
