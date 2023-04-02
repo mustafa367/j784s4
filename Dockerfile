@@ -33,8 +33,8 @@ RUN cp ${PSDKL_PATH}/board-support/prebuilt-images/boot-${SOC}-evm.tar.gz ${PSDK
 RUN cp ${PSDKL_PATH}/filesystem/tisdk-edgeai-image-${SOC}-evm.tar.xz ${PSDKR_PATH}/
 
 # Run setup_psdk_rtos.sh
-RUN cd /opt/ti-processor-sdk-rtos-j784s4-evm-08_06_00_14
-RUN bash ./psdk_rtos/scripts/setup_psdk_rtos.sh
+# RUN cd /opt/ti-processor-sdk-rtos-j784s4-evm-08_06_00_14
+# RUN bash ./psdk_rtos/scripts/setup_psdk_rtos.sh
 
 # Clean up
 RUN rm /ti*
